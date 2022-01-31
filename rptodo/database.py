@@ -36,7 +36,7 @@ class DatabaseHandler:
 
     def read_todos(self) -> DBResponse:
         try:
-            with self.db_path.open("r") as db:
+            with self._db_path.open("r") as db:
                 try:
                     return DBResponse(json.load(db), SUCCESS)
                 except json.JSONDecodeError: # Catch wrong JSON format
